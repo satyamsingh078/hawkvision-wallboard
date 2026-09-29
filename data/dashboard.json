@@ -1,0 +1,391 @@
+{
+ "meta": {
+  "dashboardId": "wallboard-001",
+  "title": "Site Operations Wallboard",
+  "version": 21,
+  "updatedAt": "2026-09-29T09:18:02.352Z"
+ },
+ "kpis": [
+  {
+   "id": "totalIncidents",
+   "label": "Total Incidents",
+   "value": 41296,
+   "changePct": 60.3,
+   "period": "30d"
+  },
+  {
+   "id": "criticalAlerts",
+   "label": "Critical Alerts",
+   "value": 295,
+   "changePct": 82.6,
+   "period": "30d"
+  },
+  {
+   "id": "activeSites",
+   "label": "Active Sites",
+   "value": 3,
+   "total": 5
+  },
+  {
+   "id": "camerasOnline",
+   "label": "Cameras Online",
+   "value": 15,
+   "total": 18
+  },
+  {
+   "id": "avgSif",
+   "label": "Avg SIF Score",
+   "value": 213,
+   "changePct": -4.1,
+   "period": "7d"
+  }
+ ],
+ "sites": [
+  {
+   "id": "site-a",
+   "name": "North Plant",
+   "status": "online"
+  },
+  {
+   "id": "site-b",
+   "name": "Harbour Yard",
+   "status": "online"
+  },
+  {
+   "id": "site-c",
+   "name": "Cement Mixing",
+   "status": "online"
+  },
+  {
+   "id": "site-d",
+   "name": "Highway Section",
+   "status": "offline"
+  },
+  {
+   "id": "site-e",
+   "name": "Warehouse 7",
+   "status": "offline"
+  }
+ ],
+ "incidentTrend": [
+  {
+   "date": "2026-09-19",
+   "site-a": 0,
+   "site-b": 12,
+   "site-c": 3
+  },
+  {
+   "date": "2026-09-20",
+   "site-a": 3202,
+   "site-b": 40,
+   "site-c": 18
+  },
+  {
+   "date": "2026-09-21",
+   "site-a": 4768,
+   "site-b": 55,
+   "site-c": 22
+  },
+  {
+   "date": "2026-09-22",
+   "site-a": 7639,
+   "site-b": 90,
+   "site-c": 41
+  },
+  {
+   "date": "2026-09-23",
+   "site-a": 1338,
+   "site-b": 30,
+   "site-c": 9
+  },
+  {
+   "date": "2026-09-24",
+   "site-a": 0,
+   "site-b": 8,
+   "site-c": 0
+  },
+  {
+   "date": "2026-09-25",
+   "site-a": 0,
+   "site-b": 5,
+   "site-c": 2
+  },
+  {
+   "date": "2026-09-26",
+   "site-a": 0,
+   "site-b": 0,
+   "site-c": 0
+  },
+  {
+   "date": "2026-09-27",
+   "site-a": 0,
+   "site-b": 14,
+   "site-c": 1
+  },
+  {
+   "date": "2026-09-28",
+   "site-a": 167,
+   "site-b": 21,
+   "site-c": 6
+  }
+ ],
+ "incidentsByUseCase": [
+  {
+   "useCase": "Speeding",
+   "count": 72
+  },
+  {
+   "useCase": "PPE",
+   "count": 9
+  },
+  {
+   "useCase": "Man Down",
+   "count": 2
+  },
+  {
+   "useCase": "Near Miss",
+   "count": 14
+  },
+  {
+   "useCase": "Intrusion Exclusion",
+   "count": 31
+  },
+  {
+   "useCase": "Fire Smoke",
+   "count": 0
+  },
+  {
+   "useCase": "Material Spill",
+   "count": 0
+  },
+  {
+   "useCase": "Wrong Side Driving",
+   "count": 5
+  }
+ ],
+ "severity24h": {
+  "critical": 7,
+  "high": 3510,
+  "low": 5460
+ },
+ "siteHealth": {
+  "siteId": "site-a",
+  "thresholds": {
+   "warning": 70,
+   "critical": 80
+  },
+  "points": [
+   {
+    "time": "2026-09-28T06:00:00Z",
+    "cpu": 12,
+    "gpu": 60,
+    "memory": 55
+   },
+   {
+    "time": "2026-09-28T07:00:00Z",
+    "cpu": 14,
+    "gpu": 66,
+    "memory": 61
+   },
+   {
+    "time": "2026-09-28T08:00:00Z",
+    "cpu": 11,
+    "gpu": 64,
+    "memory": 95
+   },
+   {
+    "time": "2026-09-28T09:00:00Z",
+    "cpu": 13,
+    "gpu": 63,
+    "memory": 58
+   },
+   {
+    "time": "2026-09-28T10:00:00Z",
+    "cpu": 12,
+    "gpu": 62,
+    "memory": 77
+   },
+   {
+    "time": "2026-09-28T11:00:00Z",
+    "cpu": 11,
+    "gpu": 61,
+    "memory": 92
+   },
+   {
+    "time": "2026-09-28T12:00:00Z",
+    "cpu": 28,
+    "gpu": 82,
+    "memory": 89
+   }
+  ]
+ },
+ "cameraFps": {
+  "thresholds": {
+   "warningLow": 10,
+   "criticalLow": 5
+  },
+  "cameras": [
+   {
+    "id": "cam-1",
+    "name": "Gate Entry",
+    "status": "online",
+    "fps": [
+     15,
+     15,
+     14.8,
+     15,
+     14.9,
+     15,
+     14.7
+    ]
+   },
+   {
+    "id": "cam-3",
+    "name": "Loading Bay",
+    "status": "online",
+    "fps": [
+     14.5,
+     14.6,
+     13.2,
+     14.8,
+     14.9,
+     14.6,
+     14.5
+    ]
+   },
+   {
+    "id": "cam-5",
+    "name": "Mixer Zone",
+    "status": "offline",
+    "fps": [
+     10.2,
+     9.1,
+     9.6,
+     9.5,
+     8.9,
+     9,
+     9.3
+    ]
+   },
+   {
+    "id": "cam-6",
+    "name": "Parking Lot",
+    "status": "online",
+    "fps": [
+     14.9,
+     14.8,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   {
+    "id": "cam-8",
+    "name": "Conveyor 2",
+    "status": "online",
+    "fps": [
+     14.7,
+     14.8,
+     14.8,
+     14.9,
+     14.6,
+     14.7,
+     14.8
+    ]
+   }
+  ],
+  "times": [
+   "06:00",
+   "07:00",
+   "08:00",
+   "09:00",
+   "10:00",
+   "11:00",
+   "12:00"
+  ]
+ },
+ "latestIncidents": [
+  {
+   "id": "inc-1790673462323",
+   "time": "2026-09-29T09:17:42.323Z",
+   "siteId": "site-c",
+   "camera": "Loading Bay",
+   "type": "Man Down",
+   "severity": "high"
+  },
+  {
+   "id": "inc-1790673458320",
+   "time": "2026-09-29T09:17:38.320Z",
+   "siteId": "site-c",
+   "camera": "Gate Entry",
+   "type": "Intrusion Exclusion",
+   "severity": "high"
+  },
+  {
+   "id": "inc-1790673454316",
+   "time": "2026-09-29T09:17:34.316Z",
+   "siteId": "site-a",
+   "camera": "Mixer Zone",
+   "type": "Near Miss",
+   "severity": "low"
+  },
+  {
+   "id": "inc-1790673450311",
+   "time": "2026-09-29T09:17:30.311Z",
+   "siteId": "site-c",
+   "camera": "Loading Bay",
+   "type": "Man Down",
+   "severity": "high"
+  },
+  {
+   "id": "inc-1790673434277",
+   "time": "2026-09-29T09:17:14.277Z",
+   "siteId": "site-c",
+   "camera": "Mixer Zone",
+   "type": "Speeding",
+   "severity": "low"
+  },
+  {
+   "id": "inc-1790673410232",
+   "time": "2026-09-29T09:16:50.232Z",
+   "siteId": "site-b",
+   "camera": "Mixer Zone",
+   "type": "Near Miss",
+   "severity": "high"
+  },
+  {
+   "id": "inc-9001",
+   "time": "2026-09-28T12:04:10Z",
+   "siteId": "site-a",
+   "camera": "Gate Entry",
+   "type": "Speeding",
+   "severity": "high"
+  },
+  {
+   "id": "inc-9000",
+   "time": "2026-09-28T12:03:52Z",
+   "siteId": "site-c",
+   "camera": "Mixer Zone",
+   "type": "PPE",
+   "severity": "low"
+  },
+  {
+   "id": "inc-8999",
+   "time": "2026-09-28T12:02:40Z",
+   "siteId": "site-a",
+   "camera": "Loading Bay",
+   "type": "Man Down",
+   "severity": "critical"
+  },
+  {
+   "id": "inc-8998",
+   "time": "2026-09-28T12:01:05Z",
+   "siteId": "site-b",
+   "camera": "Conveyor 2",
+   "type": "Near Miss",
+   "severity": "high"
+  }
+ ]
+}
