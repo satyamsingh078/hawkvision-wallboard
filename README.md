@@ -23,7 +23,7 @@ The mock server (`server/server.mjs`, plain Node, no deps) returns the raw file 
 
 ## Deployed link for demo
 
-hawkvision-wallboard.vercel.app
+https://hawkvision-wallboard.vercel.app
  
 
 ## Behaviours
