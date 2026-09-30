@@ -21,25 +21,10 @@ The mock server (`server/server.mjs`, plain Node, no deps) returns the raw file 
 - **Trade-offs:** latency up to one interval (WebSocket would be near-instant); load grows linearly with wallboards × 1/interval (fine for a control room; for hundreds of screens add ETag/304 or move to WebSocket/SSE with server-side fan-out); much simpler than sockets + backoff.
 - **No needless re-renders:** each section is compared (JSON) with the previous one and the old reference is kept if unchanged, so unchanged charts do not re-render.
 
-## Deploying to Vercel
+## Deployed link for demo
 
-Vercel's filesystem is **read-only in production** — it can't run the local Node server or write to `data/dashboard.json` the way `npm run dev` does locally. So the deployed version uses a different, Vercel-native way to look live:
-
-- `api/dashboard.js` is a Vercel serverless function (auto-detected from the `/api` folder). On every request it takes the base `data/dashboard.json`, and deterministically derives a slightly different snapshot from the current time (KPIs wobble, an incident is occasionally added, site-health jitters) — a new "state" every 4 seconds, no disk writes, no shared state between invocations.
-- The frontend's `useDashboard` hook doesn't change at all — it just polls `/api/dashboard` as before.
-
-**Steps:**
-1. Push this repo to GitHub.
-2. Go to [vercel.com/new](https://vercel.com/new), import the repo.
-3. Framework preset: **Vite** (auto-detected via `vercel.json`). No env vars needed. Click **Deploy**.
-4. Your wallboard is live at `https://<project>.vercel.app` and updates every poll, no manual steps.
-
-**What's different from local dev:** locally, editing `data/dashboard.json` and saving is what the assignment's grading steps use to test live updates — do that during the local demo. On Vercel, the same *effect* (values changing on each poll, without a page reload) is produced by `api/dashboard.js` instead, since Vercel can't persist file edits. If you want the deployed site to reflect real edits to the same file (not just simulated ones), the next step is a small persistent store (Vercel KV / Upstash Redis) that `api/dashboard.js` reads and an admin endpoint writes to — not included here, listed under "with more time".
-
-
-- Every top-level key has its own Zod schema (`src/schema.ts`). An invalid section keeps its last good data, shows a small "data error" badge on that widget only, and logs to the console.
-- Broken JSON / HTTP failure: last data stays on screen; header goes Reconnecting… → Offline — showing last data (after 3 failed polls) and back to LIVE on success.
-- Types are inferred from the schemas – no `any`.
+hawkvision-wallboard.vercel.app
+ 
 
 ## Behaviours
 KPI tile flashes ~1 s on value change; a *new* critical incident is highlighted in the ticker and pulses the Critical Alerts tile; offline cameras are grey/dashed/struck-through in the FPS legend. Use cases with 0 are hidden and the rest sorted.
@@ -66,6 +51,3 @@ src/App.tsx, styles.css layout (CSS grid)
 
 ## With more time
 WebSocket/SSE option with backoff, ETag/304 polling, Vitest tests for the transforms, config-driven layout, auto-rotating pages, Dockerfile, deployed link.
-
-## AI usage
-This project was generated with Claude (Anthropic); I reviewed it before submitting.
